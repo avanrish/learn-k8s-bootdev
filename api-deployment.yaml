@@ -21,4 +21,11 @@ spec:
         envFrom:
           - configMapRef:
               name: "synergychat-api-configmap"
+        volumeMounts:
+          - name: "synergychat-api-volume"
+            mountPath: "/persist"
+      volumes:
+        - name: "synergychat-api-volume"
+          persistentVolumeClaim:
+            claimName: "synergychat-api-pvc"
 
