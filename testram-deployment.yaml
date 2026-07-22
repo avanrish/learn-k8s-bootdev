@@ -20,7 +20,6 @@ spec:
           resources:
             limits:
               memory: "256Mi"
-              cpu: "500m"
           envFrom:
             - configMapRef:
                 name: "synergychat-testram-configmap"
