@@ -1,10 +1,10 @@
-apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
+apiVersion: "gateway.networking.k8s.io/v1"
+kind: "Gateway"
 metadata:
-  name: app-gateway
+  name: "app-gateway"
 spec:
-  gatewayClassName: app-gatewayclass
+  gatewayClassName: "app-gatewayclass"
   listeners:
-    - name: http
-      protocol: HTTP
+    - name: "http"
+      protocol: "HTTP"
       port: 80

@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: "apps/v1"
+kind: "Deployment"
 metadata:
   name: "synergychat-crawler"
   namespace: "crawler"
@@ -20,38 +20,38 @@ spec:
         image: "bootdotdev/synergychat-crawler:latest"
         envFrom:
           - configMapRef:
-              name: synergychat-crawler-configmap
+              name: "synergychat-crawler-configmap"
         volumeMounts:
           - name: "cache-volume"
-            mountPath: /cache
+            mountPath: "/cache"
       - name: "synergychat-crawler-2"
         image: "bootdotdev/synergychat-crawler:latest"
         envFrom:
           - configMapRef:
-              name: synergychat-crawler-configmap
+              name: "synergychat-crawler-configmap"
         env:
           - name: "CRAWLER_PORT"
             valueFrom:
               configMapKeyRef:
-                name: synergychat-crawler-configmap
+                name: "synergychat-crawler-configmap"
                 key: "CRAWLER_PORT_2"
         volumeMounts:
           - name: "cache-volume"
-            mountPath: /cache
+            mountPath: "/cache"
       - name: "synergychat-crawler-3"
         image: "bootdotdev/synergychat-crawler:latest"
         envFrom:
           - configMapRef:
-              name: synergychat-crawler-configmap
+              name: "synergychat-crawler-configmap"
         env:
           - name: "CRAWLER_PORT"
             valueFrom:
               configMapKeyRef:
-                name: synergychat-crawler-configmap
+                name: "synergychat-crawler-configmap"
                 key: "CRAWLER_PORT_3"
         volumeMounts:
           - name: "cache-volume"
-            mountPath: /cache
+            mountPath: "/cache"
       volumes:
         - name: "cache-volume"
           emptyDir: {}
